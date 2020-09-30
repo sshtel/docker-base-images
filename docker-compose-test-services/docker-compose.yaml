@@ -1,0 +1,28 @@
+version: "3"
+services:
+    prom:
+        image: prom/prometheus
+        ports:
+        - 9090:9090
+
+    statsd-exporter:
+        image: prom/statsd-exporter
+        ports:
+        - 9102:9102
+        - 9125:9125/tcp
+        - 9125:9125/udp
+
+    mysql:
+        image: mysql
+        ports:
+        - 3306:3306
+        environment:
+        - MYSQL_USER=user
+        - MYSQL_PASSWORD=password
+        - MYSQL_ROOT_PASSWORD=rootpassword
+        - MYSQL_ALLOW_EMPTY_PASSWORD=true
+
+    mongo:
+        image: mongo
+        ports:
+        - 27017:27017
