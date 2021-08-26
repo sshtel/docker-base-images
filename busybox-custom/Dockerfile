@@ -20,4 +20,4 @@ RUN npm i
 
 RUN echo ${PORT}
 
-ENTRYPOINT [ "node", "app.js" ]
+ENTRYPOINT [ "npm", "run", "start" ]
